@@ -7,3 +7,5 @@ To run the website:
 4) Visit 'localhost/phpmyadmin' through a browser and create a new database. Import the database tables by choosing the 'handkerchief.sql' file
 5) Open 'db.php' file and set the database details like username, password and database name
 6) Finally, visit 'localhost/handkerchief/index.php' to load the homepage
+
+![Index](screenshots/1.png)
