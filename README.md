@@ -1,4 +1,5 @@
-Handkercheif is an online movie ticket website like BookMyShow. The website has been created using HTML, CSS, JavaScript and PHP. The database has been implemented using MySQL database. Seatmaps for theatre screens were designed using HTML, CSS and JavaScript.
+Handkercheif is an online movie ticket booking website like BookMyShow. The website has been created using HTML, CSS, JavaScript and PHP. The database has been implemented using MySQL database. Seatmaps for theatre screens were designed using HTML, CSS and JavaScript.
+
 To run the website:
 1) Download the repository
 2) Place the contents of the repository inside a folder, for example 'handkerchief'
