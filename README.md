@@ -8,4 +8,20 @@ To run the website:
 5) Open 'db.php' file and set the database details like username, password and database name
 6) Finally, visit 'localhost/handkerchief/index.php' to load the homepage
 
+Screenshots:
+1) Movies
 ![Index](screenshots/1.png)
+2) Movie details and showtimes
+![Movie](screenshots/9.png)
+3) Select the seats
+![Screen](screenshots/2.png)
+4) Booking confirmation
+![Booking](screenshots/3.png)
+5) Booked tickets in the database
+![Tickets](screenshots/4.png)
+6) Movies in the database
+![Movies](screenshots/5.png)
+7) Theatre screens
+![Tickets](screenshots/6.png)
+![Tickets](screenshots/7.png)
+![Tickets](screenshots/8.png)
