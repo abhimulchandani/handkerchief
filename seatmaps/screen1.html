@@ -1,0 +1,297 @@
+<html>
+	<head>
+		<style>
+			.seat
+			{
+				color: green;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                border: 1px solid green;
+				border-radius: 12px;
+				margin: 5px;
+			}
+
+			.space
+			{
+                width: 40px;
+                height: 40px;
+                border: 1px dotted;
+				border-radius: 12px;
+				margin: 5px;
+				display: none;
+			}
+
+			.available
+            {
+                background-color: white;
+                color: green;
+            }
+            
+            .available:hover
+            {
+                cursor: pointer;
+            }
+
+            .booked
+            {
+                background-color: darkgray;
+                color: white;
+                border-color: darkgray; 
+            }
+            
+            .booked:hover
+            {
+                cursor: default;
+                background-color: darkgray;
+                border-color: darkgray;
+            }
+            
+            .clicked
+            {
+                background-color: green;
+                color: white;
+                cursor: pointer;
+            }
+
+            #bookButton
+            {
+            	width: 250px;
+            	height: 35px;
+            	color: white;
+            	background-color: #0066D9;
+            	display: block;
+            	margin-left: auto;
+            	margin-right: auto;
+            	margin-top: 40px;
+            }
+            
+		</style>
+	</head>
+	<body>
+		<div id='seatmap' style="width: 900px; margin-left: auto; margin-right: auto;">
+			<span style='display: block; margin-left: auto; margin-right: auto; width: 140px;  margin-top: 20px;'>Platinum: Rs. 200</span>
+			<hr>
+			<table>	
+				<tr>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='A-1'><span>A-1</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='A-2'><span>A-2</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='A-3'><span>A-3</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='A-4'><span>A-4</span></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='A-5'><span>A-5</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='A-6'><span>A-6</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='A-7'><span>A-7</span></div></td>
+				</tr>
+				<tr>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='B-1'><span>B-1</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='B-2'><span>B-2</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='B-3'><span>B-3</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='B-4'><span>B-4</span></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='space'></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='B-5'><span>B-5</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='B-6'><span>B-6</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='B-7'><span>B-7</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='B-8'><span>B-8</span></div></td>
+				</tr>
+				<tr>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-1'><span>C-1</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-2'><span>C-2</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-3'><span>C-3</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-4'><span>C-4</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-5'><span>C-5</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-6'><span>C-6</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-7'><span>C-7</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-8'><span>C-8</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-9'><span>C-9</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-10'><span>C-10</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-11'><span>C-11</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-12'><span>C-12</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-13'><span>C-13</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-14'><span>C-14</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-15'><span>C-15</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='C-16'><span>C-16</span></div></td>
+				</tr>
+				<tr>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-1'><span>D-1</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-2'><span>D-2</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-3'><span>D-3</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-4'><span>D-4</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-5'><span>D-5</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-6'><span>D-6</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-7'><span>D-7</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-8'><span>D-8</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-9'><span>D-9</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-10'><span>D-10</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-11'><span>D-11</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-12'><span>D-12</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-13'><span>D-13</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-14'><span>D-14</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-15'><span>D-15</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='D-16'><span>D-16</span></div></td>
+				</tr>
+				<tr>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-1'><span>E-1</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-2'><span>E-2</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-3'><span>E-3</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-4'><span>E-4</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-5'><span>E-5</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-6'><span>E-6</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-7'><span>E-7</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-8'><span>E-8</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-9'><span>E-9</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-10'><span>E-10</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-11'><span>E-11</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-12'><span>E-12</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-13'><span>E-13</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-14'><span>E-14</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-15'><span>E-15</span></div></td>
+					<td><div class='seat available' data-class='platinum' data-price='200' onclick='clicked(this.id)' id='E-16'><span>E-16</span></div></td>
+				</tr>
+			</table>
+
+			<span style='display: block; margin-left: auto; margin-right: auto; width: 140px; margin-top: 20px;'>Gold: Rs. 180</span>
+			<hr>
+
+			<table>
+				<tr>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-1'><span>F-1</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-2'><span>F-2</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-3'><span>F-3</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-4'><span>F-4</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-5'><span>F-5</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-6'><span>F-6</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-7'><span>F-7</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-8'><span>F-8</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-9'><span>F-9</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-10'><span>F-10</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-11'><span>F-11</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-12'><span>F-12</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-13'><span>F-13</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-14'><span>F-14</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-15'><span>F-15</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='F-16'><span>F-16</span></div></td>
+				</tr>
+				<tr>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-1'><span>G-1</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-2'><span>G-2</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-3'><span>G-3</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-4'><span>G-4</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-5'><span>G-5</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-6'><span>G-6</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-7'><span>G-7</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-8'><span>G-8</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-9'><span>G-9</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-10'><span>G-10</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-11'><span>G-11</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-12'><span>G-12</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-13'><span>G-13</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-14'><span>G-14</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-15'><span>G-15</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='G-16'><span>G-16</span></div></td>
+				</tr>
+				<tr>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-1'><span>H-1</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-2'><span>H-2</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-3'><span>H-3</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-4'><span>H-4</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-5'><span>H-5</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-6'><span>H-6</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-7'><span>H-7</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-8'><span>H-8</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-9'><span>H-9</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-10'><span>H-10</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-11'><span>H-11</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-12'><span>H-12</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-13'><span>H-13</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-14'><span>H-14</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-15'><span>H-15</span></div></td>
+					<td><div class='seat available' data-class='gold' data-price='180' onclick='clicked(this.id)' id='H-16'><span>H-16</span></div></td>
+				</tr>
+			</table>
+
+			<span style='display: block; margin-left: auto; margin-right: auto; width: 140px; margin-top: 20px;'>Silver: Rs. 160</span>
+			<hr>
+
+			<table>
+				<tr>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-1'><span>I-1</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-2'><span>I-2</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-3'><span>I-3</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-4'><span>I-4</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-5'><span>I-5</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-6'><span>I-6</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-7'><span>I-7</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-8'><span>I-8</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-9'><span>I-9</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-10'><span>I-10</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-11'><span>I-11</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-12'><span>I-12</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-13'><span>I-13</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-14'><span>I-14</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-15'><span>I-15</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='I-16'><span>I-16</span></div></td>
+				</tr>
+				<tr>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-1'><span>J-1</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-2'><span>J-2</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-3'><span>J-3</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-4'><span>J-4</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-5'><span>J-5</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-6'><span>J-6</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-7'><span>J-7</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-8'><span>J-8</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-9'><span>J-9</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-10'><span>J-10</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-11'><span>J-11</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-12'><span>J-12</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-13'><span>J-13</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-14'><span>J-14</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-15'><span>J-15</span></div></td>
+					<td><div class='seat available' data-class='silver' data-price='160' onclick='clicked(this.id)' id='J-16'><span>J-16</span></div></td>
+				</tr>
+			</table>
+
+			<hr size=6 noshade style="margin-top: 50px">
+			<span style='font-size: 20px; font-family: Verdana; display: block; margin-left: auto; margin-right: auto; width: 200px;'>Screen this way</span>
+
+</div>
+
+		<script>
+			
+			function clicked(str)
+            {
+                obj = document.getElementById(str);
+             	
+             	if(obj.className == 'seat available')
+                    obj.className = 'seat clicked';
+                
+                else if(obj.className == 'seat clicked')
+                    obj.className = 'seat available';
+
+                /*
+				alert(obj.id);
+             	alert(obj.dataset.class);
+             	alert(obj.dataset.price);
+                */
+            }
+            
+		</script>
+	</body>
+</html>
