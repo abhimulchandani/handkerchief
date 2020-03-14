@@ -1,6 +1,4 @@
-Handkerchief is an online movie ticket booking website like BookMyShow. The users can can view latest movies, their show times, and book tickets by selecting the seats of their choice. The GUI, including the seat map for theatre screens was designed using HTML, CSS & JavaScript. The back-end of the website was implemented using PHP. The database has been implemented using MySQL database.
-
-A website where users can view latest movies, their show times, and book tickets by selecting the seats of their choice. The GUI, including the seat map for theatre screens was designed using HTML, CSS & JavaScript. The back-end of the website was implemented using PHP.
+Handkerchief is an online movie ticket booking website where users can can view the latest movies, their show times, and book tickets by selecting the seats of their choice. The GUI, including the seat map for theatre screens has been designed using HTML, CSS & JavaScript. The back-end of the website has been implemented using PHP. The database has been implemented using MySQL database.
 
 To run the website:
 1) Download the contents of the repository
