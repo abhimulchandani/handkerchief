@@ -16,7 +16,7 @@ Screenshots:
 
 2) Movie details and showtimes
 
-![Movie](screenshots/9.png)
+![Movie](screenshots/10.png)
 
 3) Select the seats
 
@@ -37,5 +37,7 @@ Screenshots:
 7) Theatre screens
 
 ![Tickets](screenshots/6.png)
+
 ![Tickets](screenshots/7.png)
+
 ![Tickets](screenshots/8.png)
