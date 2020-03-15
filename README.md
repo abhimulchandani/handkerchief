@@ -1,6 +1,6 @@
 Handkerchief is an online movie ticket booking website where users can can view the latest movies, their show times, and book tickets by selecting the seats of their choice. The GUI, including the seat map for theatre screens has been designed using HTML, CSS & JavaScript. The back-end of the website has been implemented using PHP. The database has been implemented using MySQL database.
 
-To run the website:
+#To run the website:
 1) Download the contents of the repository
 2) Place the contents of the repository inside a folder, for example 'handkerchief'
 3) Place the 'handkerchief' folder inside 'xampp/htdocs'
@@ -8,8 +8,11 @@ To run the website:
 5) Open 'db.php' file and set the database details like username, password and database name
 6) Finally, visit 'localhost/handkerchief/index.php' to load the homepage
 
-Screenshots:
+#ER diagram:
 
+![ERD](database/ERdiagram.png)
+
+#Screenshots:
 1) Movies
 
 ![Index](screenshots/1.png)
