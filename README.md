@@ -11,37 +11,38 @@ To run the website:
 
 Database Design:
 
-![database_design](database/ERdiagram.png)
+![Entity Relationship Diagram](database/erdiagram.png)
 
 Screenshots:
+
 1) Movies
 
-![Index](screenshots/1.png)
+![Index Page](screenshots/index.png)
 
-2) Movie details and showtimes
+2) Movie Details and it's Shows
 
-![Movie](screenshots/10.png)
+![Movie Page](screenshots/moviepage.png)
 
-3) Select the seats
+3) Seat Selection
 
-![Screen](screenshots/2.png)
+![Screen Page](screenshots/screenpage.png)
 
-4) Booking confirmation
+4) Confirmation of Booking
 
-![Booking](screenshots/3.png)
+![Booking Confirmation](screenshots/booking.png)
 
-5) Booked tickets in the database
+5) Booked Tickets inside Profile
 
-![Tickets](screenshots/4.png)
+![Booked Tickets](screenshots/booked.png)
 
-6) Movies in the database
+6) Logout
 
-![Movies](screenshots/5.png)
+![Logout](screenshots/logout.png)
 
-7) Theatre screens
+7) Login
 
-![Tickets](screenshots/6.png)
+![Login](screenshots/login.png)
 
-![Tickets](screenshots/7.png)
+8) Signup
 
-![Tickets](screenshots/8.png)
+![Signup](screenshots/signup.png)
