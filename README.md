@@ -5,8 +5,8 @@ To run the website:
 2) Download the contents of the repository
 3) Place the contents of the repository inside a folder, for example 'handkerchief'
 4) Place the 'handkerchief' folder inside 'xampp/htdocs/'
-5) Visit 'http://localhost/phpmyadmin' through a browser and create a new database. Import the database tables by choosing the 'handkerchief.sql' file
-6) Open 'db.php' file and set the database details like username, password and database name
+5) Visit 'http://localhost/phpmyadmin' through a browser and create a new database. Import the database tables by choosing the 'handkerchief.sql' file from the 'database' folder
+6) Open 'db.php' file and set the username, password and database name
 7) Finally, visit 'http://localhost/handkerchief/index.php' to load the index page
 
 Database Design:
