@@ -5,6 +5,7 @@ body
 	font-family: verdana;
 }
 
+/* Header */
 #header
 {
 	background-color: #254E58;
@@ -33,12 +34,64 @@ body
 	margin-top: 36px;
 }
 
+#login {
+	position: relative;
+	display: inline-block;
+}
+
+#login a
+{
+	color: white;
+	text-decoration: none;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#login:hover #menu {display: block;}
+
+#login:hover {cursor: pointer;}
+
+#login #menu
+{
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 150px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+#login #menu a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+#login #menu a:hover {background-color: #ddd;} 
+
+#login #menu #username 
+{
+	color: #254E58;
+	font-weight: bold;
+	padding: 12px 16px;
+	display: block;
+	font-size: 14px;
+}
+
+#login #menu #username:hover {cursor: default;}
+
+/* Main */
 #main
 {
 	padding: 40px 40px;
 	background: white;
-	margin: 35px;
-	border-radius: 35px;
+	margin: 20px;
+	border-radius: 10px;
+	font-family: verdana;
+
 }
 
 
@@ -68,43 +121,6 @@ body
 	color: red;
 }
 
-.dropdown {
-	position: relative;
-	display: inline-block;
-}
-
-.dropdown a
-{
-	color: white;
-	text-decoration: none;
-	font-size: 22px;
-	font-weight: bold;
-}
-
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	min-width: 150px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
-}
-
-.dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	font-weight: normal;
-	font-size: 14px;
-}
-
-.dropdown-content a:hover {background-color: #ddd;} 
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {cursor: pointer;}
 
 .clear
 {
