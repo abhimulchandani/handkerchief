@@ -11,42 +11,35 @@ Database structure:
 ![Entity Relationship diagram](screenshots/erdiagram.png)
 
 Screenshots:
-<br />
+
 1) Home page
 
 ![Index page](screenshots/index.png)
 
-<br />
 2) Movie details and it's shows
 
 ![Movie page](screenshots/moviepage.png)
 
-<br />
 3) Seat selection
 
 ![Screen page](screenshots/screenpage.png)
 
-<br />
 4) Confirmation of booking
 
 ![Ticket](screenshots/ticket.png)
 
-<br />
 5) Booked tickets
 
 ![Booked tickets](screenshots/booked.png)
 
-<br />
 6) Movie rating
 
 ![Movie rating](screenshots/rating.png)
 
-<br />
 7) Login
 
 ![Login page](screenshots/login.png)
 
-<br />
 8) Signup
 
 ![Signup page](screenshots/signup.png)
