@@ -4,7 +4,26 @@
 		<title>handkerchief</title>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<style>
-			
+
+		input{
+			display: block;
+			margin-top: 16px;
+		}
+
+		#button
+		{
+			margin-top: 20px;
+			border-radius: 6px;
+		    color: #FFFFFF;
+		    background-color: #1072d6;
+		    transition: all 0.2s;
+		    padding: 4px 20px;
+		}
+		
+		#button:hover
+		{
+			opacity: 0.9;
+		}
 		</style>
 	</head>
 
@@ -49,7 +68,7 @@ if(@$username) {
 		<div id="header">
 			
 			<div id="logo">
-				<a href="http://localhost/handkerchief/index.php">handkerchief</a>
+				<a href="index.php">handkerchief</a>
 			</div>
 		</div>
 
@@ -62,7 +81,7 @@ if(@$username) {
 				<input type="password" placeholder="Password" name="password" id="password" size="16px" required>
 				<input type="submit" id="button" name="submit" value="Login">
 				<span class="error"><?php echo @$errors; ?></span>
-				<a href="http://localhost/handkerchief/signup.php">Don't have an account?</a>
+				<a href="signup.php">Don't have an account?</a>
 			</form>
 
 		</div>
