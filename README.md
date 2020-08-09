@@ -15,32 +15,38 @@ Screenshots:
 1) Home page
 
 ![Index page](screenshots/index.png)
-<br />
 
+<br />
 2) Movie details and it's shows
 
 ![Movie page](screenshots/moviepage.png)
+
 <br />
 3) Seat selection
-<br />
+
 ![Screen page](screenshots/screenpage.png)
+
 <br />
 4) Confirmation of booking
-<br />
+
 ![Ticket](screenshots/ticket.png)
+
 <br />
 5) Booked tickets
-<br />
+
 ![Booked tickets](screenshots/booked.png)
+
 <br />
 6) Movie rating
-<br />
+
 ![Movie rating](screenshots/rating.png)
+
 <br />
 7) Login
-<br />
+
 ![Login page](screenshots/login.png)
+
 <br />
 8) Signup
-<br />
+
 ![Signup page](screenshots/signup.png)
