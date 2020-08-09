@@ -5,36 +5,40 @@ The GUI, including the seat map of theatre screens has been designed using HTML,
 The back-end of the website has been implemented using PHP.<br />
 The database has been implemented using MySQL database.<br />
 
+Database structure
+
+![Entity Relationship diagram](screenshots/erdiagram.png)
+
 Screenshots:
 
-1) Movies
+1) Home page
 
-![Index Page](screenshots/index.png)
+![Index page](screenshots/index.png)
 
-2) Movie Details and it's Shows
+2) Movie details and it's shows
 
-![Movie Page](screenshots/moviepage.png)
+![Movie page](screenshots/moviepage.png)
 
-3) Seat Selection
+3) Seat selection
 
-![Screen Page](screenshots/screenpage.png)
+![Screen page](screenshots/screenpage.png)
 
-4) Confirmation of Booking
+4) Confirmation of booking
 
-![Booking Confirmation](screenshots/booking.png)
+![Ticket](screenshots/ticket.png)
 
-5) Booked Tickets inside Profile
+5) Booked tickets
 
-![Booked Tickets](screenshots/booked.png)
+![Booked tickets](screenshots/booked.png)
 
-6) Logout
+6) Movie rating
 
-![Logout](screenshots/logout.png)
+![Movie rating](screenshots/rating.png)
 
 7) Login
 
-![Login](screenshots/login.png)
+![Login page](screenshots/login.png)
 
 8) Signup
 
-![Signup](screenshots/signup.png)
+![Signup page](screenshots/signup.png)
