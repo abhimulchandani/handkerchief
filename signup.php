@@ -4,7 +4,19 @@
 		<title>handkerchief</title>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<style>
-			
+		#button
+		{
+			border-radius: 6px;
+		    color: #FFFFFF;
+		    background-color: #1072d6;
+		    transition: all 0.2s;
+		    padding: 6px 20px;
+		}
+		
+		#button:hover
+		{
+			opacity: 0.9;
+		}
 		</style>
 	</head>
 
@@ -39,7 +51,7 @@ if(@$_POST["submit"]){
 	else {
 		$query = "INSERT INTO user (name, email, password, birth_date) VALUES ('$f_name', '$f_email', '$f_password', '$birth_date')";
 		if(mysqli_query($conn, $query)) {
-			header('location:http://localhost/handkerchief/login.php');
+			header('location:login.php');
 		}
 		else {
 			echo "<p><strong>ERROR: Unable to execute $query: ".mysqli_error($conn)."</strong></p>";
@@ -59,7 +71,7 @@ if(@$username) {
 		<div id="header">
 			
 			<div id="logo">
-				<a href="http://localhost/handkerchief/index.php">handkerchief</a>
+				<a href="index.php">handkerchief</a>
 			</div>
 		</div>
 
