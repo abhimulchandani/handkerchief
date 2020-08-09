@@ -4,47 +4,102 @@
 		<title>handkerchief</title>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<style>
-			
+
             #movie_info
             {
-                font-family: verdana;
                 font-weight: normal;
                 font-size: 18px;
                 margin-bottom: 12px;
+                color: #1034a6;
             }
             
             #show_info
             {
-                font-family: verdana;
                 font-weight: normal;
                 font-size: 18px;
-                margin-bottom: 50px;
+                margin-bottom: 60px;
+                color: #1034a6;
             }
 
-            #bookButton
+            .seat
             {
-                width: 200px;
-                height: 46px;
-                color: white;
-                font-size: 22px;
-                background-color: #0066D9;
-                font-family: verdana;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 30px;
+                color: green;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                border: 1px solid green;
+                border-radius: 12px;
+                margin: 5px;
+            }
+
+            .space
+            {
+                width: 40px;
+                height: 40px;
+                border: 1px dotted;
+                border-radius: 12px;
+                margin: 5px;
+                display: none;
+            }
+
+            .available
+            {
+                background-color: white;
+                color: green;
+            }
+            
+            .available:hover
+            {
                 cursor: pointer;
             }
 
-            .text
+            .booked
             {
-                font-size: 18px;
-                font-family: verdana;
-                display: block;
+                background-color: darkgray;
+                color: white;
+                border-color: darkgray; 
+            }
+            
+            .booked:hover
+            {
+                cursor: default;
+                background-color: darkgray;
+                border-color: darkgray;
+            }
+            
+            .clicked
+            {
+                background-color: green;
+                color: white;
+                cursor: pointer;
+            }
+
+            #booking
+            {
+                width: 126px;
                 margin-left: auto;
                 margin-right: auto;
-                width: 180px;
-                margin-top: 20px;;
+                margin-top: 40px;
+            }
+
+            #button
+            {
+                border-radius: 8px;
+                font-family:'Roboto',sans-serif;
+                font-weight: 500;
+                color: #FFFFFF;
+                background-color: #1072d6;
+                text-align: center;
+                transition: all 0.2s;
+                padding: 12px 36px;
+                font-size: 22px;
+                cursor: pointer;
+            }
+
+            #button:hover
+            {
+                opacity: 0.9;
             }
 
             #ticket
@@ -53,10 +108,16 @@
                 margin: 20px;
                 padding: 40px;
                 border-radius: 35px;
-                width: 24%;
+                width: 50%;
                 margin-left: auto;
                 margin-right: auto;
                 text-align: center;
+            }
+
+            #ticket #transaction
+            {
+                color: #1072d6;
+                font-size: 22px;
             }
 
 		</style>
@@ -77,30 +138,29 @@ $username = @$_SESSION["username"];
 		<div id="header">
 			
 			<div id="logo">
-                <a href='<?php echo $indexUrl; ?>'>handkerchief</a>
+                <a href='index.php'>handkerchief</a>
             </div>
 
 			<div id="login">
-				<div class='dropdown'>
 
 <?php
 
 $userId = 0;
+
 if(@$username) {
     $userId = @$_SESSION["userid"];
 	echo "
-			<a class='dropbtn'>Profile</a>
-			<div class='dropdown-content'>
-				<a href='#' style='color: #254E58; font-weight: bold;'>$username</a>
-                <a href='$bookedticketsUrl'>Booked Tickets</a>
-                <a href='$logoutUrl'>Logout</a>
-			</div>";
+			<a>Profile</a>
+            <div id='menu'>
+                <span id='username'>$username</span>
+                <a href='bookedtickets.php'>Booked Tickets</a>
+                <a href='logout.php'>Logout</a>
+            </div>";
 }
 else {
-	echo "<a href='$loginUrl'>Login</a>";
+	echo "<a href='login.php'>Login</a>";
 }
 ?>
-				</div>
 			</div>
 		</div>
 
@@ -192,7 +252,7 @@ mysqli_close($conn);
 ?>
             
             <div id='movie_info'>
-<?php echo "$movie_name | $language | $format | $age_certificate | $runtime mins"; ?>
+<?php echo "$movie_name | $language $format &nbsp;($age_certificate) | $runtime mins"; ?>
 			</div>
 
             <div id='show_info'>
@@ -207,9 +267,13 @@ mysqli_close($conn);
                 <input type="text" value='<?php echo $bookedSeats; ?>' id='bookedSeats'>
                 <input type='text' id='userid' value='<?php echo $userId; ?>'>
                 <input type='text' id='showid' value='<?php echo $showId; ?>'>
-                
+              
             </form>
-            <button id='bookButton' onclick='booktickets()'>Book Tickets</button>
+            <div id='booking'>
+                <button id='button' onclick='booktickets()'>Book</button>
+            </div>
+
+            <div class="clear"></div>
 
 	    </div>
 
@@ -241,7 +305,7 @@ mysqli_close($conn);
 
                 if(userid == 0){
                     window.alert("Please login to your account");
-                    window.location.href = '<?php echo $loginUrl; ?>';
+                    window.location.href = 'login.php';
                 }
                 else
                 {
@@ -266,25 +330,38 @@ mysqli_close($conn);
                     }
                     
                     if(seats == "") {
-                        window.alert("No seat selected!");
+                        window.alert("Please select your seats first");
                     }
                     
+                    else {
 
-                    if (window.XMLHttpRequest)
-                    {
-                        xmlhttp=new XMLHttpRequest();
-                    }
-                    xmlhttp.onreadystatechange=function()
-                    {
-                        if (this.readyState==4 && this.status==200)
+                        if (window.XMLHttpRequest)
                         {
-                            document.getElementById('main').innerHTML = this.responseText;
+                            xmlhttp=new XMLHttpRequest();
                         }
+                        xmlhttp.onreadystatechange=function()
+                        {
+                            if (this.readyState==4 && this.status==200)
+                            {
+                                document.getElementById('main').innerHTML = this.responseText;
+                            }
+                        }
+                        xmlhttp.open("GET","booktickets.php?seats="+ seats +"&types="+ types +"&prices="+ prices +"&userId="+ userid +"&showId="+ showid, true);
+                        xmlhttp.send();
                     }
-                    xmlhttp.open("GET","booktickets.php?seats="+ seats +"&types="+ types +"&prices="+ prices +"&userId="+ userid +"&showId="+ showid, true);
-                    xmlhttp.send();
 
                 }
+            }
+
+            function clicked(str)
+            {
+                obj = document.getElementById(str);
+                
+                if(obj.className == 'seat available')
+                    obj.className = 'seat clicked';
+                
+                else if(obj.className == 'seat clicked')
+                    obj.className = 'seat available';
             }
 
 		</script>
