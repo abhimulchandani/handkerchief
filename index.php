@@ -4,6 +4,9 @@
 		<title>handkerchief</title>
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<style>
+
+			#main {height: 100%;}
+
 			.movie
 	        {
 	            width: 240px;
@@ -19,9 +22,9 @@
 	            height: 340px;
 	        }
 
-	        .movie a:hover
+	        .movie:hover
 	        {
-	            opacity: 0.9;
+	            opacity: 0.85;
 	        }
 		</style>
 	</head>
@@ -41,27 +44,25 @@ $username = @$_SESSION["username"];
 		<div id="header">
 			
 			<div id="logo">
-				<a href='<?php echo $indexUrl; ?>'>handkerchief</a>
+				<a href='index.php'>handkerchief</a>
 			</div>
 
 			<div id="login">
-				<div class='dropdown'>
 
 <?php
 if(@$username) {
 	echo "
-			<a class='dropbtn'>Profile</a>
-			<div class='dropdown-content'>
-				<a href='#' style='color: #254E58; font-weight: bold;'>$username</a>
-				<a href='$bookedticketsUrl'>Booked Tickets</a>
-				<a href='$logoutUrl'>Logout</a>
+			<a>Profile</a>
+			<div id='menu'>
+				<span id='username'>$username</span>
+				<a href='bookedtickets.php'>Booked Tickets</a>
+				<a href='logout.php'>Logout</a>
 			</div>";
 }
 else {
-	echo "<a href='$loginUrl'>Login</a>";
+	echo "<a href='login.php'>Login</a>";
 }
 ?>
-				</div>
 			</div>
 		</div>
 
@@ -84,7 +85,7 @@ else {
 
 mysqli_close($conn);
 ?>
-			<form id='movieForm' method='get' action='<?php echo $moviepageUrl; ?>' style='display:none'>
+			<form id='movieForm' method='get' action='moviepage.php' style='display:none'>
 				<input type="text" name='movieId' id='movieId'>
 			</form>
 
