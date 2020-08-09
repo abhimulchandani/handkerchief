@@ -111,6 +111,7 @@ echo "
 
 <?php 
 
+//Extract booking information from the table transaction
 $sql1 = "SELECT transaction_id, amount, time_of_booking, number_of_tickets, movie_name, screen_name, theatre_name, show_date, show_time from transaction WHERE user_id=$userId ORDER BY time_of_booking DESC";
 
 
