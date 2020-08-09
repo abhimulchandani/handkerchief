@@ -152,7 +152,7 @@ date_default_timezone_set('Asia/Kolkata');
 $time_of_booking = date("Y-m-d H:i:s");
 
 //Putting data into the table transaction
-$sql = "INSERT INTO transaction (amount, payment_method, time_of_booking, number_of_tickets, movie_name, screen_name, theatre_name, show_date, show_time, show_id, user_id) VALUES ($amount, 'UPI', '$time_of_booking', $len, '$movie_name', '$screen_name', '$theatre_name', '$show_date', '$show_time', $showId, $userId)";
+$sql = "INSERT INTO transaction (amount, time_of_booking, number_of_tickets, movie_name, screen_name, theatre_name, show_date, show_time, show_id, user_id) VALUES ($amount, '$time_of_booking', $len, '$movie_name', '$screen_name', '$theatre_name', '$show_date', '$show_time', $showId, $userId)";
 
 if(!mysqli_query($conn, $sql)) {
 	echo "<p>ERROR: Failed to execute query $sql ".mysqli_error($conn)."</p>";
@@ -185,12 +185,12 @@ mysqli_close($conn);
 
 echo "
 	<div id='ticket'>
-		<h3>Tickets booked successfully!</h3>
-		<p>Transaction ID: $transaction_id</p>
-		<p>$movie_name ($language) ($age_certificate)</p>
+		<h2>Tickets booked successfully!</h2>
+		<p id='transaction'>Transaction ID: $transaction_id</p>
+		<p>$movie_name ($language $format) ($age_certificate)</p>
 		<p>$theatre_name $screen_name</p>
-		<p>$date $time</p>
-		<p>Total: &#8377; $amount</p>
+		<p>$date &nbsp; $time</p>
+		<p>Total Amount &#8377;$amount</p>
 		<p>";
 
 for($i=0; $i<$len; $i++) {
