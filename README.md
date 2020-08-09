@@ -1,11 +1,10 @@
-Handkerchief is a movie ticket booking website where users can view the latest movies, their show times, and book tickets by selecting the seats of their choice. <br />
-The movies, their details, their shows and the available seats are dynamically fetched from the database.<br />
-The tickets booked by the user are stored under a transaction in the database.<br />
-The GUI, including the seat map of theatre screens has been designed using HTML, CSS & JavaScript.<br />
-The back-end of the website has been implemented using PHP.<br />
-The database has been implemented using MySQL database.<br />
+Handkerchief is a movie ticket booking website where users can view the latest movies, their show times, and book tickets by selecting the seats of their choice. <br /><br />
+The movies, their details, their shows and the available seats are dynamically fetched from the database.<br /><br />
+The tickets booked by the user are stored under a transaction in the database.<br /><br />
+The GUI, including the seat map of theatre screens has been designed using HTML, CSS & JavaScript.<br /><br />
+The back-end of the website has been implemented using PHP.<br /><br />
+The database has been implemented using MySQL database.<br /><br />
 
-<br/>
 Database structure:
 
 ![Entity Relationship diagram](screenshots/erdiagram.png)
