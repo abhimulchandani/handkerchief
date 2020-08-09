@@ -5,51 +5,96 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<style>
 			
-			#movie_left
+			#poster
             {
                 width: 240px;
                 float: left;
                 margin: 10px 0px;
                 margin-right: 15px;
-                cursor: pointer;
             }
 
-            #movie_left img
+            #poster img
             {
                 width: 240px;
                 height: 340px;
             }
-
-            #movie_left a:hover
-            {
-                opacity: 0.9;
-            }
             
-            #movie_right
+            #details
             {
                 float: left;
-                margin-left: 12px;
+                margin-left: 28px;
+
             }
 
-            #name
+            #details #name
             {
-                font-size: 36px;
+                font-size: 42px;
                 font-weight: bold;
                 display: block;
-                font-family: verdana;
                 margin: 20px 0px;
+                color: #1034a6;
             }
             
-            #movie_info
+            #details p
             {
-                font-family: verdana;
-                font-weight: normal;
+                font-size: 17px;
+                margin-bottom: -12px;
+            }
+
+            
+            #rating
+            {
+                float: left;
+                margin-top: 36px;
+            }
+
+            #rating #slider-container
+            {
+                margin-top: 24px;
+            }
+
+            #rating p #heart
+            {
+                font-size: 36px;
+                color: red;
+            }
+            
+            #rating p #value
+            {
+                font-size: 28px;
+                color: #1034a6;
+            }
+
+            #rating #userrating
+            {
+                color: #1034a6;
                 font-size: 18px;
             }
-            
-            #shows
+
+            #rating #slider
             {
-                padding-top: 40px;
+                vertical-align: text-top;
+            }
+
+            #rating #slider:hover
+            {
+                cursor: pointer;
+            }
+
+            #rating a
+            {
+                text-decoration: none;
+            }
+
+
+            #shows {padding-top: 40px;}
+
+            #date
+            {
+                display: block;
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 4px;
             }
 
             .show
@@ -62,8 +107,8 @@
                 border: 1px solid grey;
                 border-radius: 1px;
                 cursor: pointer;
-                font-family: verdana;
                 border-radius: 10px;
+               	font-family: verdana;
             }
 
             .show:hover
@@ -71,16 +116,6 @@
             	color: white;
                 background-color: green;
             }
-            
-            #date
-            {
-                display: block;
-                font-weight: bold;
-                font-size: 18px;
-                font-family: verdana;
-            }
-            
-            
 
 		</style>
 	</head>
@@ -101,27 +136,29 @@ $username = @$_SESSION["username"];
 		<div id="header">
 			
 			<div id="logo">
-				<a href='<?php echo $indexUrl; ?>'>handkerchief</a>
+				<a href='index.php'>handkerchief</a>
 			</div>
 
 			<div id="login">
-				<div class='dropdown'>
 
 <?php
+$userId = 0;
+$hasUserRated = 0;
+
 if(@$username) {
+    $userId = @$_SESSION["userid"];
 	echo "
-			<a class='dropbtn'>Profile</a>
-			<div class='dropdown-content'>
-				<a href='#' style='color: #254E58; font-weight: bold;'>$username</a>
-				<a href='$bookedticketsUrl'>Booked Tickets</a>
-				<a href='$logoutUrl'>Logout</a>
+			<a>Profile</a>
+			<div id='menu'>
+				<span id='username'>$username</span>
+				<a href='bookedtickets.php'>Booked Tickets</a>
+                <a href='logout.php'>Logout</a>
 			</div>";
 }
 else {
-	echo "<a href='$loginUrl'>Login</a>";
+	echo "<a href='login.php'>Login</a>";
 }
 ?>
-				</div>
 			</div>
 		</div>
 
@@ -130,7 +167,9 @@ else {
 <?php
 
 $movieId = $_GET["movieId"];
-$sql = "SELECT * FROM movie WHERE movie_id=$movieId";
+
+//Extracting movie details from the table movie
+$sql = "SELECT name, language, genre, age_certificate, release_date, format, runtime, poster FROM movie WHERE movie_id=$movieId";
 
 if($result = mysqli_query($conn, $sql)) {
 	$row = mysqli_fetch_assoc($result);
@@ -140,30 +179,90 @@ if($result = mysqli_query($conn, $sql)) {
     $genre = $row['genre'];
     $age_certificate = $row['age_certificate'];
     $release_date = date_create($row['release_date']);
-    $release_date = date_format($release_date, "j M Y");
+    $release_date = date_format($release_date, "jS F Y");
 	$format = $row['format'];
     $runtime = $row['runtime'];
     $poster = $row['poster'];
-    $rating = $row['rating'];
 }
 else {
 	echo "<p>ERROR: Failed to execute query $sql ".mysqli_error($conn)."</p>";
 }
 
+//Extracting average movie rating from the table movie_rating
+$sql = "SELECT AVG(rating) AS avg, COUNT(rating) AS votes FROM movie_rating WHERE movie_id=$movieId ";
+if($result = mysqli_query($conn, $sql)) {
+    $row = mysqli_fetch_assoc($result);
+    
+    $rating = round($row['avg']);
+    $number_of_votes = $row['votes'];
+}
+else {
+    echo "<p>ERROR: Failed to execute query $sql ".mysqli_error($conn)."</p>";
+}
+
+
+//Inserting the computed average movie rating into the table movie
+$sql = "UPDATE movie SET rating=$rating WHERE movie_id=$movieId";
+if(!mysqli_query($conn, $sql)) {
+    echo "<p>ERROR: Failed to execute query $sql ".mysqli_error($conn)."</p>";
+}
+
+
+//Extracting the user rating for the movie
+$sql = "SELECT rating FROM movie_rating WHERE user_id=$userId AND movie_id=$movieId";
+if($result = mysqli_query($conn, $sql)) {
+    $row = mysqli_fetch_assoc($result);
+    
+    $user_rating = $row['rating'];
+    if($user_rating != 0) {
+        $hasUserRated = true;
+    }
+    else {
+        $hasUserRated = false;    
+    }
+}
+else {
+    echo "<p>ERROR: Failed to execute query $sql ".mysqli_error($conn)."</p>";
+}
 
 ?>
-			<div id='movie_left'><img src='<?php echo $poster ?>'></div>
+			<div id='poster'><img src='<?php echo $poster ?>'></div>
 	        
-	        <div id='movie_right'>
+	        <div id='details'>
 <?php
 	echo "
-	<span id='name'>$name</span>
-	<span id='movie_info'>$language | $format | $age_certificate | $genre <br><br>Release Date: $release_date <br><br>Runtime: $runtime mins </span>";
+	<p id='name'>$name</p>
+	<p>$language &nbsp;$format<p>
+    <p>$genre &nbsp;($age_certificate)</p>
+    <p>$release_date</p>
+    <p>$runtime mins</p>";
+
+
 ?>
-		
-				<div class="clear"></div>
-			</div>
+                <div id='rating'>
+                    <p><span id='heart'>&#9829;</span> <span id='value'><?php echo $rating; ?>%</span> &nbsp;(<?php echo $number_of_votes; ?> votes)</p>
+                    <div id='slider-container'>
+
+<?php
+
+if($hasUserRated) {
+    echo "<p>Your rating: <span id='userrating'> $user_rating%</span></p>";
+}
+else {
+    echo "
+    <p>Rate it:</p>
+    <p>
+        <input type='range' min='10' max='100' value='10' step='10' id='slider'>
+        &nbsp;<span id='output'></span>% &nbsp;<a href='javascript:rateMovie()'>Submit</a>
+    </p>";
+}
+?>
+                    </div>
+                </div>
+            </div>
+
 			<div class="clear"></div>
+
 			<div id="shows">
 
 <?php
@@ -193,7 +292,13 @@ mysqli_close($conn);
 ?>
 			</div>
 
-			<form id='showForm' method='get' action='<?php echo $screenpageUrl; ?>' style='display:none'>
+            <form id='ratingForm' method='get' action='ratemovie.php' style='display:none'>
+                    <input type="text" name='userId' value='<?php echo @$userId; ?>' id='userId'>
+                    <input type="text" name='movieId' value='<?php echo @$movieId; ?>' id='movieId'>
+                    <input type="text" name='rating' value='' id='givenRating'>
+            </form>
+
+			<form id='showForm' method='get' action='screenpage.php' style='display:none'>
 		            <input type="text" name='showId' id='showId'>
 		    </form>
 
@@ -209,6 +314,28 @@ mysqli_close($conn);
         		document.getElementById('showId').value = showTime;
                 document.getElementById('showForm').submit();
         	}
+
+            // Display the default slider value
+            var slider = document.getElementById("slider");
+            var output = document.getElementById("output");
+            output.innerHTML = slider.value;
+
+            // Update the current slider value (each time you drag the slider handle)
+            slider.oninput = function() {
+              output.innerHTML = this.value;
+            }
+
+            function rateMovie()
+            {
+                if(document.getElementById("userId").value == 0){
+                    alert("Please login to your account to give a rating");
+                }
+                else {
+                    document.getElementById("givenRating").value = slider.value;
+                    document.getElementById('ratingForm').submit();
+                }
+            }
+
 		</script>
 
 	</body>
