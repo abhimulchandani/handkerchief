@@ -7,17 +7,18 @@ The database has been implemented using MySQL database.<br />
 
 <br/>
 Database structure:
-<br />
+
 ![Entity Relationship diagram](screenshots/erdiagram.png)
 
 Screenshots:
 <br />
 1) Home page
-<br />
+
 ![Index page](screenshots/index.png)
 <br />
+
 2) Movie details and it's shows
-<br />
+
 ![Movie page](screenshots/moviepage.png)
 <br />
 3) Seat selection
