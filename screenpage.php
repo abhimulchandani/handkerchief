@@ -119,6 +119,12 @@
                 color: #1072d6;
                 font-size: 22px;
             }
+			
+			#seatmap
+            {
+                overflow-x: scroll;
+                padding-bottom: 16px;
+            }
 
 		</style>
 	</head>
