@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'myFont';
+  src: url('fonts/freestylescript.TTF');
+}
+
 body
 {
 	margin: 0px;
@@ -24,7 +29,7 @@ body
 	text-decoration: none;
 	color: white;
 	font-size: 80px;
-	font-family: 'freestyle script';
+	font-family: 'myFont';
 }
 
 #header #login
