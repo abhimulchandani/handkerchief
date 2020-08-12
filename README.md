@@ -42,3 +42,9 @@ Screenshots:
 8) Signup
 
 ![Signup page](screenshots/signup.png)
+
+Extras:
+
+Seat Map
+
+![Seat map](screenshots/seatmap.png)
