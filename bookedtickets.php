@@ -77,6 +77,9 @@
 include 'db.php';
 session_start();
 
+$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$_SESSION["url"] = filter_var($url, FILTER_VALIDATE_URL);
+
 $username = @$_SESSION["username"];
 
 if(!@$username) {
