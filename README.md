@@ -5,6 +5,9 @@ The GUI, including the seat maps of multiplex screens has been designed using HT
 The back-end of the website has been implemented using PHP.<br />
 The database has been implemented using MySQL database.<br /><br />
 
+Website URL: http://handkerchief.epizy.com
+<br /><br />
+
 Database structure:
 
 ![Entity Relationship diagram](screenshots/erdiagram.png)
