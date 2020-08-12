@@ -2,5 +2,10 @@
 include 'db.php';
 session_start();
 session_destroy();
-header('location:'.$_SESSION["url"]);
+if(@$_SESSION["url"]) {
+    header('location:'.$_SESSION["url"]);
+}
+else {
+    header('location:index.php');
+}
 ?>
