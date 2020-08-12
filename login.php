@@ -60,7 +60,12 @@ if(@$_POST["submit"]){
 $username = @$_SESSION["username"];
 
 if(@$username) {
-	header('location:'.$_SESSION["url"]);
+	if(@$_SESSION["url"]) {
+		header('location:'.$_SESSION["url"]);
+	}
+	else {
+		header('location:index.php');
+	}
 }
 
 ?>
