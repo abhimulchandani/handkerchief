@@ -1,11 +1,11 @@
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>handkerchief</title>
-		<link rel="stylesheet" type="text/css" href="main.css">
-		<style>
-			
-			#poster
+    <head>
+        <meta charset="utf-8">
+        <title>handkerchief</title>
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <style>
+            
+            #poster
             {
                 width: 240px;
                 float: left;
@@ -108,19 +108,19 @@
                 border-radius: 1px;
                 cursor: pointer;
                 border-radius: 10px;
-               	font-family: verdana;
+                font-family: verdana;
             }
 
             .show:hover
             {
-            	color: white;
+                color: white;
                 background-color: green;
             }
 
-		</style>
-	</head>
+        </style>
+    </head>
 
-	<body>
+    <body>
 
 <?php
 include 'db.php';
@@ -133,13 +133,13 @@ $_SESSION["url"] = filter_var($url, FILTER_VALIDATE_URL);
 $username = @$_SESSION["username"];
 ?>
 
-		<div id="header">
-			
-			<div id="logo">
-				<a href='index.php'>handkerchief</a>
-			</div>
+        <div id="header">
+            
+            <div id="logo">
+                <a href='index.php'>handkerchief</a>
+            </div>
 
-			<div id="login">
+            <div id="login">
 
 <?php
 $userId = 0;
@@ -147,22 +147,22 @@ $hasUserRated = 0;
 
 if(@$username) {
     $userId = @$_SESSION["userid"];
-	echo "
-			<a>Profile</a>
-			<div id='menu'>
-				<span id='username'>$username</span>
-				<a href='bookedtickets.php'>Booked Tickets</a>
+    echo "
+            <a>Profile</a>
+            <div id='menu'>
+                <span id='username'>$username</span>
+                <a href='bookedtickets.php'>Booked Tickets</a>
                 <a href='logout.php'>Logout</a>
-			</div>";
+            </div>";
 }
 else {
-	echo "<a href='login.php'>Login</a>";
+    echo "<a href='login.php'>Login</a>";
 }
 ?>
-			</div>
-		</div>
+            </div>
+        </div>
 
-		<div id="main">
+        <div id="main">
 
 <?php
 
@@ -172,7 +172,7 @@ $movieId = $_GET["movieId"];
 $sql = "SELECT name, language, genre, age_certificate, release_date, format, runtime, poster FROM movie WHERE movie_id=$movieId";
 
 if($result = mysqli_query($conn, $sql)) {
-	$row = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_assoc($result);
     
     $name = $row['name'];
     $language = $row['language'];
@@ -180,12 +180,12 @@ if($result = mysqli_query($conn, $sql)) {
     $age_certificate = $row['age_certificate'];
     $release_date = date_create($row['release_date']);
     $release_date = date_format($release_date, "jS F Y");
-	$format = $row['format'];
+    $format = $row['format'];
     $runtime = $row['runtime'];
     $poster = $row['poster'];
 }
 else {
-	echo "<p>ERROR: Failed to execute query $sql ".mysqli_error($conn)."</p>";
+    echo "<p>ERROR: Failed to execute query $sql ".mysqli_error($conn)."</p>";
 }
 
 //Extracting average movie rating from the table movie_rating
@@ -226,13 +226,13 @@ else {
 }
 
 ?>
-			<div id='poster'><img src='<?php echo $poster ?>'></div>
-	        
-	        <div id='details'>
+            <div id='poster'><img src='<?php echo $poster ?>'></div>
+            
+            <div id='details'>
 <?php
-	echo "
-	<p id='name'>$name</p>
-	<p>$language &nbsp;$format<p>
+    echo "
+    <p id='name'>$name</p>
+    <p>$language &nbsp;$format<p>
     <p>$genre &nbsp;($age_certificate)</p>
     <p>$release_date</p>
     <p>$runtime mins</p>";
@@ -261,9 +261,9 @@ else {
                 </div>
             </div>
 
-			<div class="clear"></div>
+            <div class="clear"></div>
 
-			<div id="shows">
+            <div id="shows">
 
 <?php
 
@@ -271,49 +271,48 @@ $sql = "SELECT * FROM movie_show WHERE movie_id=$movieId order by date,time";
 $temp = '1st Jan, 0000';
 
 if($result = mysqli_query($conn, $sql)) {
-	while($row = mysqli_fetch_assoc($result)) {
+    while($row = mysqli_fetch_assoc($result)) {
 
-		$show_date = date_create($row['date']);
-		$show_date = date_format($show_date, "j M, D");
+        $show_date = date_create($row['date']);
+        $show_date = date_format($show_date, "j M, D");
 
-		if($show_date != $temp){
-			echo "<span id='date'>$show_date</span>";
+        if($show_date != $temp){
+            echo "<span id='date'>$show_date</span>";
             $temp = $show_date;
-		}
+        }
 
-		$show_time = date_create($row['date']. " ". $row['time']);
-		$show_time = date_format($show_time, "h:i A");
+        $show_time = date_create($row['date']. " ". $row['time']);
+        $show_time = date_format($show_time, "h:i A");
 
-		echo "<button class='show' id=".$row['show_id']." onclick='getShowTime(this.id)'>".$show_time."</button>";
+        echo "<button class='show' id=".$row['show_id']." onclick='getShowTime(this.id)'>".$show_time."</button>";
 
-	}
+    }
 }
 mysqli_close($conn);
 ?>
-			</div>
+            </div>
 
             <form id='ratingForm' method='get' action='ratemovie.php' style='display:none'>
                     <input type="text" name='userId' value='<?php echo @$userId; ?>' id='userId'>
                     <input type="text" name='movieId' value='<?php echo @$movieId; ?>' id='movieId'>
-                    <input type="text" name='rating' value='' id='givenRating'>
             </form>
 
-			<form id='showForm' method='get' action='screenpage.php' style='display:none'>
-		            <input type="text" name='showId' id='showId'>
-		    </form>
+            <form id='showForm' method='get' action='screenpage.php' style='display:none'>
+                    <input type="text" name='showId' id='showId'>
+            </form>
 
-		    <div class="clear"></div>
+            <div class="clear"></div>
 
-	    </div>
+        </div>
 
-		<div id="footer"></div>
+        <div id="footer"></div>
 
-		<script>
-			function getShowTime(showTime)
-        	{
-        		document.getElementById('showId').value = showTime;
+        <script>
+            function getShowTime(showTime)
+            {
+                document.getElementById('showId').value = showTime;
                 document.getElementById('showForm').submit();
-        	}
+            }
 
             // Display the default slider value
             var slider = document.getElementById("slider");
@@ -327,17 +326,32 @@ mysqli_close($conn);
 
             function rateMovie()
             {
-                if(document.getElementById("userId").value == 0){
+                var userId = document.getElementById("userId").value;
+                var movieId = document.getElementById("movieId").value;
+                
+                if(userId == 0){
                     alert("Please login to your account to give a rating");
                 }
                 else {
-                    document.getElementById("givenRating").value = slider.value;
-                    document.getElementById('ratingForm').submit();
+                    var givenRating = slider.value;
+                    
+                    if (window.XMLHttpRequest){
+                            xmlhttp=new XMLHttpRequest();
+                        }
+
+                        xmlhttp.onreadystatechange=function(){
+                            if (this.readyState==4 && this.status==200){
+                                document.getElementById('slider-container').innerHTML = this.responseText;
+                            }
+                        }
+                        xmlhttp.open("GET","ratemovie.php?userId="+ userId +"&movieId="+ movieId +"&rating="+ givenRating, true);
+                        xmlhttp.send();
+
                 }
             }
 
-		</script>
+        </script>
 
-	</body>
+    </body>
 
 </html>
