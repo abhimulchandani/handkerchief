@@ -5,9 +5,9 @@ session_start();
 
 $userId = $_GET["userId"];
 $movieId = $_GET["movieId"];
-$rating = $_GET["rating"];
+$userrating = $_GET["rating"];
 
-$sql = "INSERT INTO movie_rating (user_id, movie_id, rating) VALUES ($userId, $movieId, $rating)";
+$sql = "INSERT INTO movie_rating (user_id, movie_id, rating) VALUES ($userId, $movieId, $userrating)";
 
 if(!mysqli_query($conn, $sql)) {
 	echo "<p>ERROR: Failed to execute query $sql ".mysqli_error($conn)."</p>";
@@ -32,6 +32,6 @@ else {
 	    echo "<p>ERROR: Failed to execute query $sql ".mysqli_error($conn)."</p>";
 	}
 
-	echo "<p><span id='heart'>&#9829;</span> <span id='value'> $rating% </span> &nbsp;($number_of_votes votes)</p><div id='slider-container'><p>Your rating: <span id='userrating'> $rating%</span></p>";
+	echo "<p><span id='heart'>&#9829;</span> <span id='value'> $rating% </span> &nbsp;($number_of_votes votes)</p><div id='slider-container'><p>Your rating: <span id='userrating'> $userrating%</span></p>";
 }
 ?>
