@@ -341,7 +341,7 @@ mysqli_close($conn);
 
                         xmlhttp.onreadystatechange=function(){
                             if (this.readyState==4 && this.status==200){
-                                document.getElementById('slider-container').innerHTML = this.responseText;
+                                document.getElementById('rating').innerHTML = this.responseText;
                             }
                         }
                         xmlhttp.open("GET","ratemovie.php?userId="+ userId +"&movieId="+ movieId +"&rating="+ givenRating, true);
